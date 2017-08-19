@@ -21,6 +21,20 @@ func TestSLinkedList_AddToHead(t *testing.T) {
 	}
 }
 
+func TestSLinkedList_Append(t *testing.T) {
+	c := new(SLinkedList)
+	c.AddToHead(10)
+	c.AddToHead(11)
+	c.Append(12)
+
+	out := printListAndCaptureOut(c)
+
+	excpected := "11  10  12  \n"
+	if out != excpected {
+		t.Errorf("got: %s, want: %s", out, excpected)
+	}
+}
+
 func TestSLinkedList_Print(t *testing.T) {
 	n3 := &slnode{data: 3, next: nil}
 	n2 := &slnode{data: 2, next: n3}
